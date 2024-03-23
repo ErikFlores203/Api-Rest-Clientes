@@ -5,15 +5,15 @@ require('dotenv').config()
 const clieteRoutes = require('./routes/clienteRoutes.js')
 
 const app = express()
-const port = process.env.PORT || 115
+const port = process.env.PORT || 4000
 
 // Middleware
 app.use(express.json())
 app.use('/', clieteRoutes)
 
-
+//Routes
 app.get('/', (req, res) => {
-    res.send("is running")
+    res.send("is running");
 })
 
 //connect mongodb
@@ -22,4 +22,4 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => console.error(error))
 
 
-app.listen(port)
+app.listen(port, () => console.log("Server listening on", port))
