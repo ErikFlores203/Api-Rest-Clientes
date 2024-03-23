@@ -1,6 +1,7 @@
 
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 require('dotenv').config()
 const clieteRoutes = require('./routes/clienteRoutes.js')
 
@@ -10,7 +11,7 @@ const port = process.env.PORT || 4000
 // Middleware
 app.use(express.json())
 app.use('/', clieteRoutes)
-
+app.use(cors())
 //Routes
 app.get('/', (req, res) => {
     res.send("is running");
