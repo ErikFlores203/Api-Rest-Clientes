@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src":"./index.js",
+            "use":"qvercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest": "/"
+        }
+    ]
+}
