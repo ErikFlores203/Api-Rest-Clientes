@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -10,13 +9,15 @@ const app = express()
 const port = process.env.PORT || 4000
 
 // Middleware
+app.use(cors())
 app.use(express.json())
 app.use('/', clieteRoutes)
-app.use(cors())
 //Routes
 app.get('/', (req, res) => {
-    res.send("is running");
+    res.send("is running")
+    res.header('Access-Control-Allow.Origin','*')
 })
+
 
 //connect mongodb
 mongoose.connect(process.env.MONGO_URI)
